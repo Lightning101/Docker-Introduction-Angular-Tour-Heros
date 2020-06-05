@@ -2,8 +2,36 @@
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
+    <label>Gender:
+      <input [(ngModel)]="hero.Gender" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Eye color:
+      <input [(ngModel)]="hero['Eye color']" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Race:
+      <input [(ngModel)]="hero.Race" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Height:
+      <input [(ngModel)]="hero.Height" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Publisher:
+      <input [(ngModel)]="hero.Publisher" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Skin color:
+      <input [(ngModel)]="hero['Skin color']" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Alignment:
+      <input [(ngModel)]="hero.Alignment" placeholder="name"/>
+    </label>
+    <br/>
+    <label>Weight:
+      <input [(ngModel)]="hero.Weight" placeholder="name"/>
     </label>
   </div>
   <button (click)="goBack()">go back</button>
