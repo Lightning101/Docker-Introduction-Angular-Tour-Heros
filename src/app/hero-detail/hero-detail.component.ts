@@ -2,13 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Hero }         from '../hero';
-import { HeroService }  from '../hero.service';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: [ './hero-detail.component.css' ]
+  styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
@@ -17,7 +17,7 @@ export class HeroDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getHero();
@@ -26,7 +26,34 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero[0]);
+      .subscribe(hero => {
+        this.hero = hero[0];
+        if (!hero.Gender) {
+          hero.Gender = '';
+        }
+        if (!hero['Eye color']) {
+          hero['Eye color'] = '';
+        }
+        if (!hero.Race) {
+          hero.Race = '';
+        }
+        if (!hero.Height) {
+          hero.Height = 0;
+        }
+        if (!hero.Publisher) {
+          hero.Publisher = '';
+        }
+        if (!hero['Skin color']) {
+          hero['Skin color'] = '';
+        }
+        if (!hero.Alignment) {
+          hero.Alignment = '';
+        }
+        if (!hero.Weight) {
+          hero.Weight = 0;
+        }
+
+      });
   }
 
   goBack(): void {
